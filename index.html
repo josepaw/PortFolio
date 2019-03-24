@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<html>
+
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="EstileOption2.css"/>
+
+<body>
+
+<div class="main">
+
+<h1>Portfolio</h1>
+<hr>
+
+<h2>Proyectos</h2>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('All')"> All</button>
+  <button class="btn" onclick="filterSelection('Modelos 3D')"> Modelos 3D</button>
+  <button class="btn" onclick="filterSelection('Animaciones')"> Animaciones</button>
+  <button class="btn" onclick="filterSelection('Contacto')"> Contacto</button>
+</div>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column Modelos 3D, All">
+    <div class="content">
+      <img src="Images/Sword.jpeg" alt="Sword" style="width:100%">
+      <h4>Sword</h4>
+      <p>Modelo detallado de una espada.</p>
+    </div>
+  </div>
+  <div class="column Modelos 3D, All">
+    <div class="content">
+    <img src="Images/Shield.jpeg" alt="Shield" style="width:100%">
+      <h4>Shield</h4>
+      <p>Escudo vikingo compuesto por 3 piezas.</p>
+    </div>
+  </div>
+  <div class="column Modelos 3D, All">
+    <div class="content">
+    <img src="Images/Rock.jpeg" alt="Rock" style="width:100%">
+      <h4>Rock</h4>
+      <p>Conujunto de rocas ambientales.</p>
+    </div>
+  </div>
+  
+  <div class="column Animaciones, All">
+    <div class="content">
+      <img src="Images/Circuit.jpeg" alt="Circuit" style="width:100%">
+      <h4>Circuit</h4>
+      <p>Recorrido dinamico con vista animada.</p>
+    </div>
+  </div>
+  <div class="column Animaciones, All">
+    <div class="content">
+    <img src="Images/Shooting.jpeg" alt="Shooting" style="width:100%">
+      <h4>Shooting</h4>
+      <p>Tiroteo con acrobacias.</p>
+    </div>
+  </div>
+  <div class="column Animaciones, All">
+    <div class="content">
+    <img src="Images/KungFu.jpeg" alt="KungFu" style="width:100%">
+      <h4>KungFu</h4>
+      <p>Poses de un monje practicando KungFu.</p>
+    </div>
+  </div>
+
+  <div class="column Contacto">
+    <div class="content">
+	<a href="https://www.artstation.com/josepaw">
+      <img src="Images/Artstation.jpg" alt="Artstation" style="width:100%">
+	  </a>
+      <h4>Artstation</h4>
+      <p>Sigueme para estar al tanto de las novedades.</p>
+    </div>
+  </div>
+  <div class="column Contacto">
+    <div class="content">
+	<a href="https://www.linkedin.com/in/jos%C3%A9-mar%C3%ADa-mu%C3%B1oz-torrero-de-la-cruz-5a63a1173/">
+    <img src="Images/Linkedin.png" alt="Linkedin" style="width:100%">
+	</a>
+      <h4>Linkedin</h4>
+      <p>Contacta conmigo facilmente.</p>
+    </div>
+  </div>
+  <div class="column Contacto">
+    <div class="content">
+	<a href="https://www.pinterest.es/josemtorrero97/">
+    <img src="Images/Pinterest.png" alt="Pinterest" style="width:100%">
+	</a>
+      <h4>Pinterest</h4>
+      <p>Sigueme para ver mis inspiraciones y referencias.</p>
+    </div>
+  </div>
+<!-- END GRID -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+
+
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+</body>
+</html>
